@@ -3,7 +3,7 @@ from fastapi_sqlalchemy import DBSessionMiddleware, db
 from models import Category, Project
 from schema import PydanticProject, PydanticCategory
 from dotenv import load_dotenv
-from routers import projects
+from routers import projects, categories
 
 import uvicorn
 import os
@@ -15,6 +15,7 @@ app = FastAPI()
 app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 app.include_router(projects.router)
+app.include_router(categories.router)
 
 @app.get('/')
 async def get_test():

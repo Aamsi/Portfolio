@@ -14,7 +14,7 @@ class Project(Base):
     description = Column(Text, nullable=True)
     picture = Column(String(150), nullable=True)
     url = Column(String(100), nullable=False, unique=True)
-    category = relationship("Category", secondary=lambda: association_table, back_populates='projects')
+    categories = relationship("Category", secondary=lambda: association_table, back_populates='projects')
 
 
 class Category(Base):
@@ -22,8 +22,7 @@ class Category(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(50), unique=True, nullable=False)
-    project = relationship("Project", secondary=lambda: association_table, back_populates='categories')
-
+    projects = relationship("Project", secondary=lambda: association_table, back_populates='categories')
 
 association_table = Table("projectcategory", Base.metadata,
     Column('project_id', Integer, ForeignKey('project.id')),

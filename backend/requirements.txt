@@ -3,3 +3,4 @@ alembic==1.5.2
 psycopg2==2.8.6
 python-dotenv==0.15.0
 FastAPI-SQLAlchemy==0.2.1
+devtools==0.6.1
