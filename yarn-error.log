@@ -1,0 +1,36 @@
+Arguments: 
+  /home/aamsi/.nvm/versions/node/v12.16.2/bin/node /home/aamsi/.nvm/versions/node/v12.16.2/bin/yarn add vue-cli-plugin-frontend -D --tilde
+
+PATH: 
+  /home/aamsi/Documents/portfolio/node_modules/.bin:/home/aamsi/Documents/node_modules/.bin:/home/aamsi/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/home/aamsi/.nvm/versions/node/v12.16.2/bin:/home/aamsi/.nvm/versions/node/v12.16.2/bin:/home/aamsi/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/aamsi/.dotnet/tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.16.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.npm.taobao.org/vue-cli-plugin-frontend: Not found
+      at Request.params.callback [as _callback] (/home/aamsi/.nvm/versions/node/v12.16.2/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/home/aamsi/.nvm/versions/node/v12.16.2/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:310:20)
+      at Request.<anonymous> (/home/aamsi/.nvm/versions/node/v12.16.2/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:310:20)
+      at IncomingMessage.<anonymous> (/home/aamsi/.nvm/versions/node/v12.16.2/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:416:28)
+      at IncomingMessage.emit (events.js:322:22)
+      at endReadableNT (_stream_readable.js:1187:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
