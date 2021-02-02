@@ -4,8 +4,7 @@ WORKDIR /frontend/
 
 COPY . /frontend
 
-RUN npm install
+RUN yarn
 
 EXPOSE 8080
-
-CMD ["npm", "run", "serve"]
+CMD ["yarn", "run", "serve"]
