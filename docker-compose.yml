@@ -8,6 +8,8 @@ services:
       - "3080:3080"
     volumes:
       - ./backend:/app
+    depends_on:
+      -  db
 
   frontend:
     build: ./frontend
