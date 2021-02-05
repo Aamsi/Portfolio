@@ -1,8 +1,14 @@
 <template>
     <v-card
-    class="mx-auto"
-    max-width="344"
+    class="mx-5 mt-5"
+    max-width="80%%"
+    min-width="350"
+    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     dark
+    :href="url"
+    target='_blank'
+    hover
+    raised
   >
     <v-img
       :src="image.source"
