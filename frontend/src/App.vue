@@ -9,11 +9,10 @@
     </v-app-bar>
     <router-view />
     </div>
-
+    <v-spacer></v-spacer>
     <v-footer
     dark
     padless
-    fixed
     >
       <v-card
       class="flex text-center"
