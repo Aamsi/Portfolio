@@ -32,6 +32,8 @@
 
 <script>
 import Project from '../components/Project'
+import { mapState } from "vuex"
+
 
 export default {
     name: 'Projects',
@@ -40,7 +42,6 @@ export default {
     },
     data() {
         return {
-            categories: [],
             projects: [
                 {
                     image: {
@@ -81,12 +82,13 @@ export default {
             ]
         }
     },
-    beforeMount () {
-
+    computed: {
+        ...mapState({
+			categories: "categories"
+		}),
+    },
+    created () {
+        this.$store.dispatch('loadCategories');
     }
 }
 </script>
-
-<style lang="scss">
-
-</style>
