@@ -1,5 +1,19 @@
 <template>
     <v-container fluid>
+        <v-row align="center">
+            <v-col
+            class="d-flex mx-auto"
+            cols="12"
+            >
+                <v-select
+                    :items="categories"
+                    label="Categorie"
+                    filled
+                    outlined
+                ></v-select>
+            </v-col>
+        </v-row>
+
         <v-row dense>
             <v-col
                 v-for="project in projects"
@@ -26,10 +40,11 @@ export default {
     },
     data() {
         return {
+            categories: [],
             projects: [
                 {
                     image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
+                        source: 'https://picsum.photos/seed/picsum/300/300',
                         alt: 'Photo non fournie',
                     },
                     title: "Testing",
@@ -38,7 +53,7 @@ export default {
                 },
                 {
                     image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
+                        source: 'https://picsum.photos/seed/picsum/300/300',
                         alt: 'Photo non fournie',
                     },
                     title: "Testing",
@@ -47,7 +62,7 @@ export default {
                 },
                 {
                     image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
+                        source: 'https://picsum.photos/seed/picsum/300/300',
                         alt: 'Photo non fournie',
                     },
                     title: "Testing",
@@ -56,25 +71,7 @@ export default {
                 },
                 {
                     image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/500/300',
+                        source: 'https://picsum.photos/seed/picsum/300/300',
                         alt: 'Photo non fournie',
                     },
                     title: "Testing",
