@@ -10,17 +10,18 @@
                     label="Categorie"
                     filled
                     outlined
+                    @change="sortProjects"
                 ></v-select>
             </v-col>
         </v-row>
 
         <v-row dense>
             <v-col
-                v-for="project in projects"
+                v-for="project in activeProjects"
                 :key="project.title"
             >
                 <Project
-                    :image="project.image"
+                    :image="project.picture"
                     :title="project.title"
                     :description="project.description"
                     :url="project.url"
@@ -34,61 +35,44 @@
 import Project from '../components/Project'
 import { mapState } from "vuex"
 
-
 export default {
     name: 'Projects',
     components: {
         Project,
     },
-    data() {
+    data () {
         return {
-            projects: [
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/300/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/300/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/300/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-                {
-                    image: {
-                        source: 'https://picsum.photos/seed/picsum/300/300',
-                        alt: 'Photo non fournie',
-                    },
-                    title: "Testing",
-                    description: 'Test description',
-                    url: 'https://github.com/Aamsi/Portfolio'
-                },
-            ]
+            activeProjects: []
         }
     },
     computed: {
         ...mapState({
-			categories: "categories"
-		}),
+            categories: "categories",
+            projects: 'projects'
+        }),
+    },
+    methods: {
+        sortProjects(category) {
+            this.activeProjects = [];
+            if (category == "Tous")
+                return (this.activeProjects = this.projects);
+
+            for (let project of this.projects) {
+                for (let cat of project.categories) {
+                    if (cat.name == category) {
+                        this.activeProjects.push(project);
+                        break;
+                    }
+                }
+            }
+        },
     },
     created () {
         this.$store.dispatch('loadCategories');
-    }
+        this.$store.dispatch('loadProjects');
+
+        this.activeProjects = this.projects;
+    },
+
 }
 </script>
