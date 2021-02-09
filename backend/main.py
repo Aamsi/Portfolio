@@ -15,7 +15,7 @@ load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 app = FastAPI()
 
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8080"])
+app.add_middleware(CORSMiddleware, allow_origins=["*"])
 app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 app.include_router(projects.router)

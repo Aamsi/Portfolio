@@ -7,12 +7,13 @@ class PydanticCategory(BaseModel):
     class Config:
         orm_mode = True
 
+
 class PydanticProject(BaseModel):
     title: str
     description: str
     picture: Optional[str]
     url: str
-    categories: List[PydanticCategory] = None
+    categories: List[PydanticCategory]
 
     class Config:
         orm_mode = True

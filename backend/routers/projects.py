@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Response
 from models import Project, Category
+from typing import List
 from schema import PydanticCategory, PydanticProject
 from fastapi_sqlalchemy import db
 
@@ -32,12 +33,7 @@ def create_project(project: PydanticProject, response: Response):
     db.session.commit()
     return new_project
 
-@router.get('/')
-def get_projects_by_categories(category: str = "all", status_code=201):
-    category_db = db.session.query(Category).filter(Category.name == category).first()
-    if not category_db:
-        projects = db.session.query(Project).all()
-        return projects
-
-    projects = category_db.projects
+@router.get('/', response_model=List[PydanticProject], status_code=200)
+def get_projects():
+    projects = db.session.query(Project).all()
     return projects
