@@ -1,0 +1,95 @@
+{
+    "projects": [
+        {
+            "title": "ft_printf",
+            "description": "Projet pour 42Paris qui consiste à reproduire le fonctionnement de printf.",
+            "picture": null,
+            "url": "https://github.com/42ismaaaaaaaaaa/rendu_printf",
+            "categories": [
+                { "name": "Scolaire" }
+            ]
+        },
+        {
+            "title": "libft",
+            "description": "Création de notre propre librairie composée de diverses fonctions utiles dans la suite du cursus de l'ecole 42Paris.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/PROJ1_school",
+            "categories": [
+                { "name": "Scolaire" }
+            ]
+        },
+        {
+            "title": "Get next line",
+            "description": "Créer un programme permettant de récupérer toutes les lignes d'un fichier.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/PROJ2SCHOOL",
+            "categories": [
+                { "name": "Scolaire" }
+            ]
+        },
+        {
+            "title": "Nutella lovers",
+            "description": "Projet effectué dans le cadre d'une formation. Cette application Django permettra à ses utilisateurs de susbtituer des aliments peu sains par d'autres en récupérant les informations nécessaires sur l'API d'Openfoodfacts.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/nutella_lovers",
+            "categories": [
+                { "name": "Scolaire" },
+                { "name": "Personnels" }
+            ]
+        },
+        {
+            "title": "GrandPy Bot",
+            "description": "Application permettant de retrouver un lieu n'importe où en France, avec une petite anecdote sur l'endroit récupérée sur l'API de Wikipedia.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/grandpy-bot",
+            "categories": [
+                { "name": "Personnels" }
+            ]
+        },
+        {
+            "title": "Map data aggregator",
+            "description": "Support visuel pour un projet visant à regrouper des données humanitaires et géographiques en les rendant disponibles via RDBMS, API, ou S3. Tentative d'utiliser folium (lol).",
+            "picture": null,
+            "url": "https://github.com/Aamsi/map_data_aggregator",
+            "categories": [
+                { "name": "Personnels" }
+            ]
+        },
+        {
+            "title": "Haxe Phaser 3",
+            "description": "Participation à un projet visant à créer des bindings entre Haxe et Phaser 3 dans le but de créer un jeu. L'objectif est de pouvoir utiliser le langage Haxe avec la librairie Phaser 3 qui est un framework pour créer des jeux vidéos avec HTML5.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/haxe-phaser3",
+            "categories": [
+                { "name": "Professionnels"}
+            ]
+        },
+        {
+            "title": "Makers for Covid-19",
+            "description": "Participation à un projet lancé par les Makers de Paris lors du premier confinement provoqué par la Covid-19. L'objectif était de permettre aux Makers de fournir les ressources nécessaires à la fabrication de masques, ainsi qu'à faciliter la production de ceux-ci.",
+            "picture": null,
+            "url": "https://github.com/Aamsi/makers-covid-19",
+            "categories": [
+                { "name": "Professionnels" }
+            ]
+        },
+        {
+            "title": "Peli-Melo",
+            "description": "Site web lancé il y a maintenant plusieurs années. Je participe à son développement régulièrement et à sa maintenance. Le principe est super! Vous crééez votre mosaïque en ajoutant vos photos préférés depuis les réseaux sociaux ou depuis votre ordinateur. Le projet évolue constamment avec des nouvelles fonctionnalités et des nouveaux produits.",
+            "picture": null,
+            "url": "https://www.peli-melo.com/",
+            "categories": [
+                { "name": "Professionnels" }
+            ]
+        },
+        {
+            "title": "Electric City 2",
+            "description": "Electric City est un jeu en cours de développement par la boite Spirkop. J'ai eu l'occasion lors de mon stage, de participer au développement du jeu en Haxe avec le framework Phaser. Dans ce jeu, vous gérez un réseau électrique sur une île. Plusieurs scénarios sont disponibles. Le lancement du jeu est prévu fin 2021.",
+            "picture": null,
+            "url": "https://games.spirkop.com/",
+            "categories": [
+                { "name": "Professionnels" }
+            ]
+        }
+    ]
+}
