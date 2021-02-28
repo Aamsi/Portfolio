@@ -1,8 +1,6 @@
 <template>
     <v-card
-    class="mx-1"
-    max-width="60%%"
-    min-width="350"
+    class="mx-2 mb-5"
     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     dark
     hover
@@ -12,7 +10,7 @@
       :src="image.source"
       :alt="image.alt"
       white
-      height="180"
+      max-height="180"
     ></v-img>
 
     <v-card-title>
@@ -30,7 +28,7 @@
         :href="url"
         target='_blank'
       >
-        Repository
+        {{ repoOrWebsite }}
       </v-btn>
 
       <v-spacer></v-spacer>
@@ -72,7 +70,7 @@ export default {
             required: true,
         },
         url: {
-            type: URL,
+            type: String,
             required: true
         },
     },
@@ -89,6 +87,16 @@ export default {
                 return "En cours...";
             return short_description;
         },
+        repoOrWebsite() {
+            if (this.url.includes("git"))
+              return "Repository";
+            return "Website";
+        },
+        cardHeight() {
+          if (this.$vuetify.breakpoint.name == 'xs')
+            return "100";
+          return "";
+        }
     }
 }
 </script>

@@ -1,7 +1,12 @@
 <template>
   <v-app>
+    <v-main>
     <div>
-    <v-app-bar dense dark>
+    <v-app-bar
+    dense
+    dark
+    fixed
+    >
     <v-tabs centered fixed-tabs>
         <v-tab to="/projects">Mes projets</v-tab>
         <v-tab to="/about">À propos de moi</v-tab>
@@ -9,6 +14,7 @@
     </v-app-bar>
     <router-view />
     </div>
+    </v-main>
     <v-spacer></v-spacer>
     <v-footer
     dark
@@ -21,7 +27,7 @@
       >
         <v-btn
         v-for="icon in icons"
-        :key="icon"
+        :key="icon.url"
         class="mx-4"
         dark
         icon
