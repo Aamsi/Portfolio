@@ -5,10 +5,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import Category, Project
 from schema import PydanticProject, PydanticCategory
 from dotenv import load_dotenv
-from routers import projects, categories
 
 import uvicorn
 import os
+
+from routers import projects, categories, admin
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -20,6 +22,7 @@ app.add_middleware(DBSessionMiddleware, db_url=os.environ["DATABASE_URL"])
 
 app.include_router(projects.router)
 app.include_router(categories.router)
+app.include_router(admin.router)
 
 @app.get('/')
 async def get_test():

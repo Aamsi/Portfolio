@@ -1,10 +1,20 @@
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Text, LargeBinary, Table, ForeignKey
-from sqlalchemy.orm import relationship
-from pydantic import BaseModel, AnyUrl, FilePath
 from datetime import datetime
 
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Text, LargeBinary, Table, ForeignKey
+from sqlalchemy_utils import EmailType
+from sqlalchemy.orm import relationship
+
+
 Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'user'
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(EmailType)
+    password_hash = Column(String(64))
+
 
 class Project(Base):
     __tablename__ = 'project'
