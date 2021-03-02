@@ -13,6 +13,7 @@
         <v-form class="mt-15">
         <v-container>
         <v-card
+        v-if="!authenticated"
         class="mx-2 mb-5 mt-5"
         color="grey lighten-3"
         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -61,13 +62,24 @@
             </v-btn>
         </v-row>
         </v-card>
+         <v-btn
+        v-if="authenticated"
+        elevation="2"
+        justify="center"
+        @click="importProjects"
+        >
+        Import projects from GitHub
+        </v-btn>
         </v-container>
         </v-form>
     </v-app>
 </template>
 
 <script>
+import { mapState } from "vuex"
+
 export default {
+
     data () {
         return {
             valid: true,
@@ -81,13 +93,25 @@ export default {
             emailRules: [
                 v => !!v || 'E-mail is required',
                 v => /.+@.+/.test(v) || 'E-mail must be valid',
-            ]
+            ],
         }
     },
     methods: {
         validate () {
-            this.$refs.form.validate();
+            let payload = {
+                email: this.email,
+                password: this.password,
+            }
+            this.$store.dispatch('checkUser', payload);
+        },
+        importProjects () {
+            this.$store.dispatch('importGithubProjects');
         }
+    },
+    computed: {
+        ...mapState({
+            authenticated: "auth",
+        })
     }
 }
 </script>
