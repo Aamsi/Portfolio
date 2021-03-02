@@ -10,10 +10,10 @@ class PydanticCategory(BaseModel):
 
 class PydanticProject(BaseModel):
     title: str
-    description: str
+    description: Optional[str]
     picture: Optional[str]
     url: str
-    categories: List[PydanticCategory]
+    categories: List[PydanticCategory] = None
 
     class Config:
         orm_mode = True

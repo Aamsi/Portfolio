@@ -47,7 +47,6 @@ export default {
         return {
             activeProjects: [],
             defaultSelect: "Tous",
-            activePage: 1,
         }
     },
     computed: {

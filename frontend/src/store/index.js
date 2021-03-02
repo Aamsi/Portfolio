@@ -11,7 +11,8 @@ Vue.axios.defaults.baseURL = "http://localhost:3080/";
 export default new Vuex.Store({
     state: {
         categories: ['Tous'],
-        projects: []
+        projects: [],
+        auth: false,
     },
     mutations: {
         SAVE_PROJECTS(state, projects) {
@@ -23,6 +24,10 @@ export default new Vuex.Store({
                         alt: 'Photo de projet'
                     };
                 }
+                if (!project.description)
+                    project.description = "Aucune description pour le moment";
+                if (project.categories.length == 0)
+                    project.categories.push('Tous')
                 state.projects.push(project);
             }
         },
@@ -30,6 +35,10 @@ export default new Vuex.Store({
             for (var category of categories)
                 state.categories.push(category.name);
         },
+        AUTHENTICATE(state, user) {
+            if (user)
+                state.auth = true;
+        }
     },
     actions: {
         loadCategories({ commit }) {
@@ -50,5 +59,29 @@ export default new Vuex.Store({
                 throw new Error(`API${error}`);
             });
         },
+        checkUser({ commit }, payload) {
+            let formData = new FormData();
+            formData.append('email', payload.email);
+            formData.append('password', payload.password);
+
+            Vue.axios.post('admin/login', formData)
+            .then(response => {
+                commit('AUTHENTICATE', response.data)
+                console.log(response.data);
+            })
+            .catch(error => {
+                throw new Error (`API${error}`);
+            });
+        },
+        importGithubProjects({ commit }) {
+            Vue.axios.get('projects/github')
+            .then(response => {
+                console.log(response.data);
+                commit('SAVE_PROJECTS', response.data);
+            })
+            .catch(error => {
+                throw new Error(`API${error}`);
+            });
+        }
     }
 })
