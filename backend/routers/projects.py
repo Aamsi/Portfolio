@@ -48,13 +48,13 @@ def import_from_github(response: Response):
 
     projects = []
     for project in github_response.json():
-        existing_project = db.session.query(Project).filter(Project.url == project['url']).first()
+        existing_project = db.session.query(Project).filter(Project.url == project['html_url']).first()
         if existing_project:
             continue
         new_project = Project(
             title=project['name'],
             description=project['description'],
-            url=project['url'],
+            url=project['html_url'],
         )
         db.session.add(new_project)
         db.session.commit()

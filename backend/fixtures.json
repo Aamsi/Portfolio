@@ -1,6 +1,16 @@
 {
     "projects": [
         {
+            "title": "Portfolio",
+            "description": "Portfolio",
+            "picture": "portfolio.webp",
+            "url": "https://github.com/Aamsi/Portfolio",
+            "categories": [
+                { "name": "Personnels" },
+                { "name": "Scolaire" }
+            ]
+        },
+        {
             "title": "ft_printf",
             "description": "Projet pour 42Paris qui consiste à reproduire le fonctionnement de printf.",
             "picture": "42paris.png",
