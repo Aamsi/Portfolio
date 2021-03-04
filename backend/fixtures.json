@@ -91,5 +91,16 @@
                 { "name": "Professionnels" }
             ]
         }
+    ],
+    "categories": [
+        {
+            "name": "Professionnels"
+        },
+        {
+            "name": "Scolaire"
+        },
+        {
+            "name": "Personnels"
+        }
     ]
 }
