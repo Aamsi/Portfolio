@@ -20,9 +20,14 @@ export default new Vuex.Store({
             for (let project of projects) {
                 if (!project.picture) {
                     project.picture = {
-                        source:  'https://picsum.photos/seed/picsum/300/300',
+                        source:  `${process.env.BASE_URL}default_1.png`,
                         alt: 'Photo de projet'
                     };
+                } else {
+                    project.picture = {
+                        source: `${process.env.BASE_URL}${project.picture}`,
+                        alt: 'Photo de projet'
+                    }
                 }
                 if (!project.description)
                     project.description = "Aucune description pour le moment";
@@ -35,8 +40,8 @@ export default new Vuex.Store({
             for (var category of categories)
                 state.categories.push(category.name);
         },
-        AUTHENTICATE(state, user) {
-            if (user)
+        AUTHENTICATE(state, data) {
+            if (data.email)
                 state.auth = true;
         }
     },
@@ -67,7 +72,6 @@ export default new Vuex.Store({
             Vue.axios.post('admin/login', formData)
             .then(response => {
                 commit('AUTHENTICATE', response.data)
-                console.log(response.data);
             })
             .catch(error => {
                 throw new Error (`API${error}`);
@@ -76,7 +80,6 @@ export default new Vuex.Store({
         importGithubProjects({ commit }) {
             Vue.axios.get('projects/github')
             .then(response => {
-                console.log(response.data);
                 commit('SAVE_PROJECTS', response.data);
             })
             .catch(error => {
