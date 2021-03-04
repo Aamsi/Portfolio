@@ -18,6 +18,7 @@ My objective is to deploy this project to GitHub Page, once I'm happy with how i
 
 - Run `docker-compose up frontend`
   > - You can actually run that whenever you want
+  > - You might encounter an issue with `vue-cli-service`. If that's the case just run `yarn install` inside the frontend directory.
   > - Go to `localhost:8080` to check the app. You won't have anything displayed since you didn't insert any data in the database.
 
 - If you want to access the pgadmin page, run `docker-compose --env-file backend/.env up pgadmin`
