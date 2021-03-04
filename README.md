@@ -1,5 +1,5 @@
 # Portfolio
-This portfolio is originally a project asked by Junior42 Paris. Which is an organization that helps students improve their coding skills by working for companies that need developers.
+This portfolio is originally a project asked by Junior42 Paris. Which is an organization that helps students improve their coding skills by working for companies that need developers.  
 My objective is to deploy this project to GitHub Page, once I'm happy with how it looks, and how it works. :smiley:
 
 
