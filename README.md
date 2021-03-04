@@ -30,7 +30,7 @@ My objective is to deploy this project to GitHub Page, once I'm happy with how i
   > - Inside the backend dir, run `virtualenv env`.
   > - Run `source env/bin/activate`
   > - Run `pip3 install -r requirements.txt`
-  > - Run `python3 insert_fixtures.py` to insert the `fixtures.json` data into your database
+  > - Run `python3 insert_fixtures.py` to insert the `fixtures.json` data into your database. If it's not working, check that the db container is still running.
  
 - Go to `localhost:8080` and check that projects are here
   > - There is an issue with how the projects are loaded. You'll have to change tab once or twice before you see anything.
