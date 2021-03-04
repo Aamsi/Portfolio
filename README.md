@@ -27,7 +27,7 @@ My objective is to deploy this project to GitHub Page, once I'm happy with how i
 
 - To insert data into the database, you'll have to set up your python environment, with virtualenv for example.
   > - Inside the backend dir, run `virtualenv env`.
-  > - Run `source env/bin/active`
+  > - Run `source env/bin/activate`
   > - Run `pip3 install -r requirements.txt`
   > - Run `python3 insert_fixtures.py` to insert the `fixtures.json` data into your database
  
