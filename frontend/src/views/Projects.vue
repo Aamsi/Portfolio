@@ -36,7 +36,6 @@
 
 <script>
 import Project from '../components/Project'
-import { mapState } from "vuex"
 
 export default {
     name: 'Projects',
@@ -47,13 +46,11 @@ export default {
         return {
             activeProjects: [],
             defaultSelect: "Tous",
+            categories: ["Tous"],
+            projects: [],
         }
     },
     computed: {
-        ...mapState({
-            categories: "categories",
-            projects: 'projects'
-        }),
         cols () {
             if (this.$vuetify.breakpoint.name == 'xs')
                 return "";
@@ -73,11 +70,14 @@ export default {
             }
         },
     },
-    created () {
-        this.$store.dispatch('loadCategories');
-        this.$store.dispatch('loadProjects');
+    mounted () {
+        this.$store.dispatch('loadCategories')
+        .then(() => this.categories = this.$store.state.categories);
 
-        this.sortProjects("Tous");
+        this.$store.dispatch('loadProjects')
+        .then(() => this.projects = this.$store.state.projects)
+        .finally(() => this.sortProjects("Tous"));
+
     },
 }
 </script>

@@ -47,21 +47,29 @@ export default new Vuex.Store({
     },
     actions: {
         loadCategories({ commit }) {
-            Vue.axios.get('categories/')
-            .then(response => {
-                commit('SAVE_CATEGORIES', response.data);
-            })
-            .catch(error => {
-                throw new Error(`API${error}`);
+            return new Promise((res, rej) => {
+                Vue.axios.get('categories/')
+                .then(response => {
+                    commit('SAVE_CATEGORIES', response.data);
+                    res()
+                })
+                .catch(error => {
+                    rej();
+                    throw new Error(`API${error}`);
+                });
             });
         },
         loadProjects({ commit }) {
-            Vue.axios.get('projects/')
-            .then(response => {
-                commit('SAVE_PROJECTS', response.data);
-            })
-            .catch(error => {
-                throw new Error(`API${error}`);
+            return new Promise((res, rej) => {
+                Vue.axios.get('projects/')
+                .then(response => {
+                    commit('SAVE_PROJECTS', response.data);
+                    res();
+                })
+                .catch(error => {
+                    rej();
+                    throw new Error(`API${error}`);
+                });
             });
         },
         checkUser({ commit }, payload) {
@@ -78,12 +86,16 @@ export default new Vuex.Store({
             });
         },
         importGithubProjects({ commit }) {
-            Vue.axios.get('projects/github')
-            .then(response => {
-                commit('SAVE_PROJECTS', response.data);
-            })
-            .catch(error => {
-                throw new Error(`API${error}`);
+            return new Promise((res, rej) => {
+                Vue.axios.get('projects/github')
+                .then(response => {
+                    commit('SAVE_PROJECTS', response.data);
+                    res();
+                })
+                .catch(error => {
+                    rej();
+                    throw new Error(`API${error}`);
+                });
             });
         }
     }
